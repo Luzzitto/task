@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    './*.{php,html}'
+    "./*.{php,html}"
   ],
   theme: {
     extend: {},

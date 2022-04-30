@@ -1,15 +1,8 @@
 # Task
-A simple project that allows college students to keep track of their assignments
-
-## Features
-- Tailored to College Students
-- Ask for more feature
+Simple Task built with PHP and MYSQL.
 
 ## Future Features
 - Calendar integration
-- AI file upload
-- Blackboard integration
 
 ## License
-
 MIT
