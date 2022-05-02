@@ -1,8 +1,8 @@
 <?php
 session_start();
-define("APP_ROOT", "http://localhost/task/");
 
 require 'classes/DB.php';
+include 'classes/globals.php';
 
 if (!isset($_SESSION["ID"])) {
     header("Location: ./user.php?action=login");
@@ -18,16 +18,16 @@ $userTasks = DB::query("SELECT * FROM tasks WHERE userid=:u", array(":u" => $_SE
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="<?php echo APP_ROOT; ?>assets/css/tailwind.css">
+    <link rel="stylesheet" href="<?php echo $_GLOBALS["APP_ROOT"]; ?>assets/css/tailwind.css">
     <title><?php echo $_SESSION["username"]; ?> task</title>
 </head>
 
 <body>
     <div class="min-h-screen bg-gradient-to-br from-blue-500 to-blue-800 py-10">
-        <div class="bg-white w-1/2 p-4 rounded mx-auto overflow-hidden">
+        <div class="bg-white w-full md:w-1/2 p-4 rounded mx-auto overflow-hidden">
             <div class="flex justify-between items-center w-full mb-2">
                 <h1 class="text-2xl font-bold mb-2">Tasks</h1>
-                <a class="btn btn-primary" href="<?php echo APP_ROOT; ?>task.php?action=add">Add Task</a>
+                <a class="btn btn-primary" href="<?php echo $_GLOBALS["APP_ROOT"]; ?>task.php?action=add">Add Task</a>
             </div>
             <div class="flex flex-col space-y-4">
                 <?php if (count($userTasks) > 0) : ?>
@@ -53,12 +53,12 @@ $userTasks = DB::query("SELECT * FROM tasks WHERE userid=:u", array(":u" => $_SE
     <script>
         window.addEventListener("keydown", function(e) {
             if (e.key == "a") {
-                window.location.href = "<?php echo APP_ROOT; ?>task.php?action=add";
+                window.location.href = "<?php echo $_GLOBALS["APP_ROOT"]; ?>task.php?action=add";
             }
         });
 
         function action(id, action) {
-            window.location.href = "<?php echo APP_ROOT; ?>task.php?action=" + action + "&id=" + id;
+            window.location.href = "<?php echo $_GLOBALS["APP_ROOT"]; ?>task.php?action=" + action + "&id=" + id;
         }
     </script>
 

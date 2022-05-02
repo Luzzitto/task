@@ -1,8 +1,8 @@
 <?php
 session_start();
-define("APP_ROOT", "http://localhost/task/");
 
 require 'classes/DB.php';
+include 'classes/globals.php';
 include 'classes/Input.php';
 
 if (!isset($_GET["action"]) || empty($_GET["action"])) {
@@ -77,7 +77,7 @@ if (isset($_GET["action"]) && !empty($_GET["action"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="<?php echo APP_ROOT; ?>assets/css/tailwind.css">
+    <link rel="stylesheet" href="<?php echo $_GLOBALS["APP_ROOT"]; ?>assets/css/tailwind.css">
     <title><?php echo ucfirst($action); ?> User - Task</title>
 </head>
 
@@ -112,7 +112,7 @@ if (isset($_GET["action"]) && !empty($_GET["action"])) {
         </div>
     </div>
 
-    <script src="<?php echo APP_ROOT; ?>assets/js/fix.js"></script>
+    <script src="<?php echo $_GLOBALS["APP_ROOT"]; ?>assets/js/fix.js"></script>
 </body>
 
 </html>
